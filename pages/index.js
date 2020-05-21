@@ -1,5 +1,5 @@
 import Items from '../components/Items';
-
+// amend this
 const Home = props => {
   return (
     <div>
