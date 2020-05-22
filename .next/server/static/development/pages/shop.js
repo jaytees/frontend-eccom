@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -514,7 +514,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Items__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Items */ "./components/Items.js");
 var _jsxFileName = "/Users/jordantrickett/udemy/wesbos/Advanced-React/eccoms-site/frontend-ecomm/pages/index.js";
 
-
+ // amend this
 
 var Home = function Home(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -551,7 +551,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!*****************************!*\
   !*** multi ./pages/shop.js ***!
   \*****************************/

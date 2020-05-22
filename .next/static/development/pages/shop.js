@@ -28916,7 +28916,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Items__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Items */ "./components/Items.js");
 var _jsxFileName = "/Users/jordantrickett/udemy/wesbos/Advanced-React/eccoms-site/frontend-ecomm/pages/index.js";
 
-
+ // amend this
 
 var Home = function Home(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -28991,7 +28991,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!*****************************!*\
   !*** multi ./pages/shop.js ***!
   \*****************************/
@@ -29016,5 +29016,5 @@ module.exports = dll_18682c416555df0bf0b9;
 
 /***/ })
 
-},[[4,"static/runtime/webpack.js"]]]));;
+},[[3,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=shop.js.map
