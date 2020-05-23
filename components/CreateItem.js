@@ -30,8 +30,8 @@ class CreateItem extends Component {
   state = {
     title: 'Shoes',
     description: 'These are great',
-    image: 'kicks.jpg',
-    largeImage: 'kicksBig.jpg',
+    image: null,
+    largeImage: null,
     price: 1000,
   };
 
@@ -43,6 +43,7 @@ class CreateItem extends Component {
     this.setState({ [name]: val });
   };
 
+  // async because we await the cloudinary response
   uploadFile = async e => {
     // gets the file from input
     const files = e.target.files;
@@ -101,6 +102,9 @@ class CreateItem extends Component {
                   required
                 />
               </label>
+              {this.state.image && (
+                <img width="200" src={this.state.image} alt="upload preview" />
+              )}
               <label htmlFor="title">
                 Title
                 <input
