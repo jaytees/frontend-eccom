@@ -6,20 +6,18 @@ import withData from '../lib/withData';
 class MyApp extends App {
   // special next.js lifecycle method
   // runs before first render
-  static async getIntialProps({ Component, ctx }) {
+  static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
-    if (component.getIntialProps) {
-      pageProps = await Component.getIntialProps(ctx);
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx);
     }
     // this exposes the query to the user
     pageProps.query = ctx.query;
-
     return { pageProps };
   }
 
   render() {
     const { Component, apollo, pageProps } = this.props;
-
     return (
       <Container>
         <ApolloProvider client={apollo}>

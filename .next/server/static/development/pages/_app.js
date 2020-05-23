@@ -659,36 +659,36 @@ function (_App) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 24
+          lineNumber: 22
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_4__["ApolloProvider"], {
         client: apollo,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 25
+          lineNumber: 23
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Page__WEBPACK_IMPORTED_MODULE_3__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 26
+          lineNumber: 24
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({}, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 27
+          lineNumber: 25
         },
         __self: this
       })))));
     }
   }], [{
-    key: "getIntialProps",
+    key: "getInitialProps",
     // special next.js lifecycle method
     // runs before first render
     value: function () {
-      var _getIntialProps = _asyncToGenerator(
+      var _getInitialProps = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(_ref) {
         var Component, ctx, pageProps;
@@ -699,13 +699,13 @@ function (_App) {
                 Component = _ref.Component, ctx = _ref.ctx;
                 pageProps = {};
 
-                if (!component.getIntialProps) {
+                if (!Component.getInitialProps) {
                   _context.next = 6;
                   break;
                 }
 
                 _context.next = 5;
-                return Component.getIntialProps(ctx);
+                return Component.getInitialProps(ctx);
 
               case 5:
                 pageProps = _context.sent;
@@ -725,8 +725,8 @@ function (_App) {
         }, _callee, this);
       }));
 
-      return function getIntialProps(_x) {
-        return _getIntialProps.apply(this, arguments);
+      return function getInitialProps(_x) {
+        return _getInitialProps.apply(this, arguments);
       };
     }()
   }]);
