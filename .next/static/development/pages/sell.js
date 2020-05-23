@@ -119,23 +119,23 @@ function (_Component) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                console.log('uploading file');
+                // gets the file from input
                 files = e.target.files;
                 data = new FormData();
                 data.append('file', files[0]);
                 data.append('upload_preset', 'wes-bos-tuitorial');
-                _context.next = 7;
+                _context.next = 6;
                 return fetch('https://api.cloudinary.com/v1_1/dz3l7u85p/image/upload', {
                   method: 'POST',
                   body: data
                 });
 
-              case 7:
+              case 6:
                 res = _context.sent;
-                _context.next = 10;
+                _context.next = 9;
                 return res.json();
 
-              case 10:
+              case 9:
                 file = _context.sent;
                 console.log(file);
 
@@ -144,7 +144,7 @@ function (_Component) {
                   largeImage: file.eager[0].secure_url
                 });
 
-              case 13:
+              case 12:
               case "end":
                 return _context.stop();
             }
@@ -247,7 +247,7 @@ function (_Component) {
           type: "file",
           id: "file",
           name: "file",
-          placeholder: "Upload and image",
+          placeholder: "Upload an image",
           onChange: _this2.uploadFile,
           required: true,
           __source: {

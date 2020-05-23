@@ -44,9 +44,9 @@ class CreateItem extends Component {
   };
 
   uploadFile = async e => {
-    console.log('uploading file');
-
+    // gets the file from input
     const files = e.target.files;
+
     const data = new FormData();
     data.append('file', files[0]);
     data.append('upload_preset', 'wes-bos-tuitorial');
@@ -96,7 +96,7 @@ class CreateItem extends Component {
                   type="file"
                   id="file"
                   name="file"
-                  placeholder="Upload and image"
+                  placeholder="Upload an image"
                   onChange={this.uploadFile}
                   required
                 />
