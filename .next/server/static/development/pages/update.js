@@ -207,6 +207,8 @@ var _jsxFileName = "/Users/jordantrickett/udemy/wesbos/Advanced-React/eccoms-sit
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -230,7 +232,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  mutation UPDATE_ITEM_MUTATION(\n    $title: String!\n    $description: String!\n    $image: String\n    $largeImage: String\n    $price: Int!\n  ) {\n    createItem(\n      title: $title\n      description: $description\n      image: $image\n      largeImage: $largeImage\n      price: $price\n    ) {\n      id\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  mutation UPDATE_ITEM_MUTATION(\n    $id: ID!\n    $title: String\n    $description: String\n    $price: Int\n  ) {\n    updateItem(\n      id: $id\n      title: $title\n      description: $description\n      price: $price\n    ) {\n      id\n      title\n      description\n      price\n    }\n  }\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -292,6 +294,41 @@ function (_Component) {
       _this.setState(_defineProperty({}, name, val));
     });
 
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "updateItem",
+    /*#__PURE__*/
+    function () {
+      var _ref = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e, updateItemMutation) {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                e.preventDefault();
+                _context.next = 3;
+                return updateItemMutation({
+                  variables: _objectSpread({
+                    id: _this.props.id
+                  }, _this.state)
+                });
+
+              case 3:
+                res = _context.sent;
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      return function (_x, _x2) {
+        return _ref.apply(this, arguments);
+      };
+    }());
+
     return _this;
   }
 
@@ -307,80 +344,51 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 53
+          lineNumber: 64
         },
         __self: this
-      }, function (_ref) {
-        var data = _ref.data,
-            loading = _ref.loading;
+      }, function (_ref2) {
+        var data = _ref2.data,
+            loading = _ref2.loading;
         if (loading) return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 55
+            lineNumber: 66
           },
           __self: this
         }, "Loading...");
+        if (!data.item) return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 67
+          },
+          __self: this
+        }, "No item found for ID ", _this2.props.id);
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Mutation"], {
           mutation: UPDATE_ITEM_MUTATION,
           variables: _this2.state,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 57
+            lineNumber: 69
           },
           __self: this
-        }, function (createItem, _ref2) {
-          var loading = _ref2.loading,
-              error = _ref2.error;
+        }, function (updateItem, _ref3) {
+          var loading = _ref3.loading,
+              error = _ref3.error;
           return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_Form__WEBPACK_IMPORTED_MODULE_5__["default"], {
-            onSubmit:
-            /*#__PURE__*/
-            function () {
-              var _ref3 = _asyncToGenerator(
-              /*#__PURE__*/
-              _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
-                var res;
-                return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-                  while (1) {
-                    switch (_context.prev = _context.next) {
-                      case 0:
-                        // stop form from submiting
-                        e.preventDefault(); // call the mutation
-
-                        _context.next = 3;
-                        return createItem();
-
-                      case 3:
-                        res = _context.sent;
-                        // send user too the item view page
-                        next_router__WEBPACK_IMPORTED_MODULE_4___default.a.push({
-                          pathname: '/item',
-                          query: {
-                            id: res.data.createItem.id
-                          }
-                        });
-
-                      case 5:
-                      case "end":
-                        return _context.stop();
-                    }
-                  }
-                }, _callee, this);
-              }));
-
-              return function (_x) {
-                return _ref3.apply(this, arguments);
-              };
-            }(),
+            onSubmit: function onSubmit(e) {
+              return _this2.updateItem(e, updateItem);
+            },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 59
+              lineNumber: 71
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_7__["default"], {
             error: error,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 74
+              lineNumber: 72
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
@@ -388,14 +396,14 @@ function (_Component) {
             "aria-busy": loading,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 75
+              lineNumber: 73
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
             htmlFor: "title",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 76
+              lineNumber: 74
             },
             __self: this
           }, "Title", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -408,14 +416,14 @@ function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 78
+              lineNumber: 76
             },
             __self: this
           })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
             htmlFor: "price",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 88
+              lineNumber: 86
             },
             __self: this
           }, "Price", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -428,14 +436,14 @@ function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 90
+              lineNumber: 88
             },
             __self: this
           })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
             htmlFor: "description",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 100
+              lineNumber: 98
             },
             __self: this
           }, "Description", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -447,17 +455,17 @@ function (_Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 102
+              lineNumber: 100
             },
             __self: this
           })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
             type: "submit",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 111
+              lineNumber: 109
             },
             __self: this
-          }, "Submit")));
+          }, "Sav", loading ? 'ing' : 'e', " Changes")));
         });
       });
     }
