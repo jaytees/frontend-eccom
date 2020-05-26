@@ -1,7 +1,6 @@
 import CreateItem from '../components/CreateItem';
 
 const Sell = props => {
-  console.log(props);
   return (
     <div>
       <CreateItem />

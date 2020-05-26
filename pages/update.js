@@ -1,12 +1,11 @@
 import UpdateItem from '../components/UpdateItem';
 
-const Sell = props => {
-  console.log(props);
+const Update = ({ query }) => {
   return (
     <div>
-      <UpdateItem />
+      <UpdateItem id={query.id} />
     </div>
   );
 };
 
-export default Sell;
+export default Update;
