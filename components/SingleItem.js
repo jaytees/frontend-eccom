@@ -1,7 +1,28 @@
 import React, { Component } from 'react';
 import gql from 'graphql-tag';
+import Head from 'next/head';
+import styled from 'styled-components';
 import { Query } from 'react-apollo';
 import Error from './ErrorMessage';
+
+const SingleItemStyles = styled.div`
+  min-width: 1200px;
+  margin: 2rem auto;
+  box-shadow: ${props => props.theme.bs};
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  min-height: 800px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .details {
+    margin: 3rem;
+    font-size: 2rem;
+  }
+`;
 
 const SINGLE_ITEM_QUERY = gql`
   query SINGLE_ITEM_QUERY($id: ID!) {
@@ -26,12 +47,22 @@ class SingleItem extends Component {
           }}
         >
           {({ error, loading, data }) => {
-            if (error) return <p>Error!</p>;
+            if (error) return <Error error={error} />;
             if (loading) return <p>Loading...</p>;
+            if (!data.item) return <p>No item for {this.props.id}</p>;
+            const item = data.item;
+
             return (
-              <p>
-                {this.props.children} for {this.props.id}
-              </p>
+              <SingleItemStyles>
+                <Head>
+                  <title>Insert Brand Name | {item.title}</title>
+                </Head>
+                <img src={item.largeImage} alt={item.title} />
+                <div className="details">
+                  <h2>Viewing {item.title}</h2>
+                  <p>{item.description}</p>
+                </div>
+              </SingleItemStyles>
             );
           }}
         </Query>
