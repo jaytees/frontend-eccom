@@ -1,10 +1,10 @@
 import SingleItem from '../components/SingleItem';
 
 // amend this
-const Item = props => {
+const Item = ({ query }) => {
   return (
     <div>
-      <SingleItem>Single Item</SingleItem>
+      <SingleItem id={query.id}>Single Item</SingleItem>
     </div>
   );
 };
