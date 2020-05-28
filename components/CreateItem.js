@@ -140,7 +140,7 @@ class CreateItem extends Component {
                   required
                 />
               </label>
-              <button type="submit">Submit</button>
+              <button type="submit">Sav{loading ? 'ing' : 'e'} Product</button>
             </fieldset>
           </Form>
         )}
