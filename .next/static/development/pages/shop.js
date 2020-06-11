@@ -29864,7 +29864,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 6:
+/***/ 3:
 /*!*****************************!*\
   !*** multi ./pages/shop.js ***!
   \*****************************/
@@ -29889,5 +29889,5 @@ module.exports = dll_18682c416555df0bf0b9;
 
 /***/ })
 
-},[[6,"static/runtime/webpack.js"]]]));;
+},[[3,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=shop.js.map
